@@ -1,0 +1,48 @@
+{{#each newsItems}}
+
+<div class="well well-sm">
+    <div class="container-fluid">
+
+            <div class="row headline">
+                <div class="newsWrapper col-sm-9">
+                  <a target="_blank" href= {{link}}><h4>{{title}}</h4></a>
+                  <p>{{summary}}</p>
+                </div>
+                <div class="imgWrapper col-sm-3">
+                  <img src="{{imgSrc}}" alt="">
+                </div>
+
+
+                <div class="col-sm-12">
+                    <a class="text-muted pull-right" href="/showComments">Show Comments</a>
+                </div>
+            </div>
+            <div class="row">
+                <form class="" action="#" method="post">
+                    <!-- //  <div class="form-group"> -->
+                    <div class="col-sm-12 input-comment">
+                        <input class="form-control" type="text" name="comment" placeholder="Write a comment" value="">
+
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="row">
+                <div class="comments col-sm-12">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Comment 1hmkjhl;l fsdfjskldf;alsdfsdfj jdfl;s'dhk</td>
+                                <td><button class="btn-danger btn-xs" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button></td>
+                            </tr>
+                            <tr>
+                                <td>Comment 1hmkjhl;l fsdfjskldf;alsdfsdfj jdfl;s'dhk</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+</div>
+{{/each}}

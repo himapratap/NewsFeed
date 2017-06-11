@@ -1,0 +1,16 @@
+.comments {
+    padding: 20px;
+  padding-top: 0px;
+}
+
+.headline {
+    padding: 20px;
+}
+
+.delete{
+  background-color: red;
+}
+
+.input-comment{
+   padding: 10px;
+}
