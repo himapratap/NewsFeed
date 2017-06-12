@@ -14,14 +14,14 @@
 
 
                 <div class="col-sm-12">
-                    <a class="text-muted pull-right" href="/showComments">Show Comments</a>
+                    <p class="text-muted pull-right" id="showComments"><u>Show Comments</u></p>
                 </div>
             </div>
             <div class="row">
-                <form class="" action="#" method="post">
+                <form class="" action="/postComments/{{_id}}" method="post">
                     <!-- //  <div class="form-group"> -->
                     <div class="col-sm-12 input-comment">
-                        <input class="form-control" type="text" name="comment" placeholder="Write a comment" value="">
+                         <input class="form-control" type="text" name="text" placeholder="Write a comment" value="">
 
                     </div>
 
@@ -32,13 +32,12 @@
                 <div class="comments col-sm-12">
                     <table class="table">
                         <tbody>
+                           {{#each comment}}
                             <tr>
-                                <td>Comment 1hmkjhl;l fsdfjskldf;alsdfsdfj jdfl;s'dhk</td>
-                                <td><button class="btn-danger btn-xs" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                <td>{{text}}</td>
+                                <td><button data-comment-id={{_id}} class="btn-danger btn-xs" type="button" name="button"><span class="glyphicon glyphicon-remove"></span></button></td>
                             </tr>
-                            <tr>
-                                <td>Comment 1hmkjhl;l fsdfjskldf;alsdfsdfj jdfl;s'dhk</td>
-                            </tr>
+                           {{/each}}
                         </tbody>
                     </table>
                 </div>
