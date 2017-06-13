@@ -14,8 +14,15 @@ var News = require("../models/News");
 var scraped = false;
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost/newsFeed");
+var dbUrl = "mongodb://localhost/newsFeed";
 
+if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI);
+} else {
+    mongoose.connect(dbUrl);
+}
+
+ 
 var db = mongoose.connection;
 
 db.on("error", (error) => console.log(`Mongoose error ${error}`));
@@ -144,4 +151,4 @@ router.delete("/news/:newsId/comments/:id", (req, res) => {
 
 router.get("/", scrape, loadFromDb);
 
- module.exports = router;
+module.exports = router;
