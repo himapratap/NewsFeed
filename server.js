@@ -33,6 +33,8 @@ var routes = require("./controller/news-routes");
 app.use("/", routes);
 
 // Listen on port 3000
-app.listen(3000, function() {
+let port = process.env.PORT || 3000;
+
+app.listen(port, function() {
     console.log("App running on port 3000!");
 });
