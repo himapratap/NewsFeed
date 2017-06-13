@@ -94,7 +94,7 @@ router.post("/postComments/:id", (req, res) => {
             console.log(`Error on saving comment ${error}`);
             res.send(error);
         }
-        console.log("Added comment" ,comment);
+        console.log("Added comment", comment);
         console.log("Updating news");
         News.findOneAndUpdate({
             "_id": articleId
@@ -115,5 +115,33 @@ router.post("/postComments/:id", (req, res) => {
 
 })
 
-router.get("/", scrape, loadFromDb)
-module.exports = router;
+router.delete("/news/:newsId/comments/:id", (req, res) => {
+    let commentId = req.params.id;
+    let newsId = req.params.newsId;
+    // delete from comment table
+    Comments.findByIdAndRemove({
+        "_id": commentId
+    }, (err, todo) => {
+        if (err) res.send(err);
+        console.log(`Delted the comment ${commentId}`);
+        News.update({
+                "_id": newsId
+            }, {
+                $pull: {
+
+                    "comment": {
+                        "_id": commentId
+                    }
+                }
+            },
+            function(error, result) {
+                if (err) res.send(err);
+                res.json(200);
+            })
+    })
+    // delete reference from news
+});
+
+router.get("/", scrape, loadFromDb);
+
+ module.exports = router;
