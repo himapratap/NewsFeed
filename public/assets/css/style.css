@@ -18,3 +18,8 @@
 .link .btn:focus,.btn:active {
    outline: none !important;
 }
+
+body{
+  background: url("../images/bkgrnd.jpg") no-repeat center center fixed;
+
+}

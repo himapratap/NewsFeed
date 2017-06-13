@@ -22,7 +22,7 @@ if (process.env.MONGODB_URI) {
     mongoose.connect(dbUrl);
 }
 
- 
+
 var db = mongoose.connection;
 
 db.on("error", (error) => console.log(`Mongoose error ${error}`));
@@ -81,7 +81,7 @@ function loadFromDb(req, res) {
         }
         console.log("=====================================================");
 
-        console.log(newsItems[0]);
+      //  console.log(newsItems[0]);
         res.render('newsItem', {
             "newsItems": newsItems
         })
